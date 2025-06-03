@@ -46,5 +46,6 @@ jobs:
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X \
+          -DmuleDeploy -s .maven/settings.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME 
