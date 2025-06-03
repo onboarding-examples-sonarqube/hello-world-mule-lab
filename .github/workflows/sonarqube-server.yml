@@ -42,9 +42,11 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
         run: |
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
+          echo "JAVA_HOME is set to: $JAVA_HOME"
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X \
           -DmuleDeploy -s .maven/settings.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
