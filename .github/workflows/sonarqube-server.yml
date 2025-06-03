@@ -48,5 +48,4 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X \
           -f sonar-scanner-maven/maven-basic/pom.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
-          -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
-          -Dsonar.projectBaseDir=sonar-scanner-maven/maven-basic/ 
+          -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME 
