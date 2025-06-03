@@ -47,7 +47,7 @@ jobs:
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
           echo "JAVA_HOME is set to: $JAVA_HOME"
-          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X \
+          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
           -DmuleDeploy -s .maven/settings.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME 
