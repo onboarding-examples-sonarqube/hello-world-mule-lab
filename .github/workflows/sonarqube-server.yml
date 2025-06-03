@@ -48,12 +48,6 @@ jobs:
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
           echo "JAVA_HOME is set to: $JAVA_HOME"
-          echo "Maven version:"
-          mvn --version
-          
-          # Clean local repository of potentially corrupted dependencies
-          rm -rf ~/.m2/repository/org/eclipse/aether
-
           mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
           -DmuleDeploy -s .maven/settings.xml -DskipMunitTests \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
